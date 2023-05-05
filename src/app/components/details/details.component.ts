@@ -18,5 +18,6 @@ export class DetailsComponent implements OnInit {
       this.name = this.name.substring(0,1).toUpperCase() + this.name.substring(1);
     });        
   }
+  
 
 }
