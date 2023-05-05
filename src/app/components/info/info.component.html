@@ -1,0 +1,33 @@
+<div class="container mb-5">
+    <label for="loc" class="form-label">Location: </label>
+    <input type="text" class="form-control mb-4 text-center" (keyup.enter)="getWeatherInfo()" for="loc" [(ngModel)]="locationInput" name="location" />
+
+    <button class="btn btn-primary" (click)="getWeatherInfo()">Get Weather information</button>
+</div>
+
+
+<div class="container" *ngIf="data">
+    <div class="card">
+        <div class="card-title">
+            Location information of {{data.name}}
+        </div>
+        <div class="card-body climate_info">
+            <label class="form-label">Latitude: </label> <span>{{data.coord.lat}}</span> <br><br>
+            
+            <label class="form-label">Longitude: </label> <span>{{data.coord.lon}}</span> <br><br>
+            
+            <label class="form-label">Feels like: </label> <span>{{data.main.feels_like}}</span> <br><br>
+            
+            <label class="form-label">Humidity: </label> <span>{{data.main.humidity}}</span> <br><br>
+            
+            <label class="form-label">Maximum temperature: </label> <span>{{data.main.temp_max}}</span> deg  <br><br>
+            
+            <label class="form-label">Maximum temperature: </label> <span>{{data.main.temp_min}}</span> deg <br><br>
+
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="isLocationNotFound">
+    Location not found {{locationInput}}
+</div>
